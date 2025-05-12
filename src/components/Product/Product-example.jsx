@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './Product.module.css';
+import styles from './Product-example.module.css';
 
 const Product = (props) => {
     const [title, setTitle] = useState(props.title);
