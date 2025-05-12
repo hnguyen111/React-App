@@ -1,5 +1,5 @@
 import './App.css'
-import Product from './components/Product/Product'
+import Product from './components/Product/Product-example'
 
 function App() {
 	// const randomMonth = Math.floor(Math.random() * 12 + 1);
