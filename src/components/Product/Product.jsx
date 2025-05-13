@@ -22,7 +22,7 @@ const Product = (props) => {
 					${props.price}
 				</Typography>
 				<Typography variant="body2" sx={{ color: 'text.secondary' }}>
-					{props.description && props.description.substring(0, 50)}
+					{props.description}
 				</Typography>
 			</CardContent>
 			<CardActions>

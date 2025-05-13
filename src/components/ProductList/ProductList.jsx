@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 const ProductList = (props) => {
 	return (
 		<div>
-			<Grid container spacing={2}>
+			<Grid container spacing={2} mt={5}>
 				{
 					props.products.map((product) => {
 						return <Grid key={product.id} size={{ sm: 12, md: 6, lg: 3 }}>

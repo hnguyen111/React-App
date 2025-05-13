@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import ProductList from "../components/ProductList/ProductList";
+import Banner from "../components/Banner/Banner";
 
 const AllProducts = () => {
 	// const [count, setCount] = useState(0);
@@ -36,7 +37,7 @@ const AllProducts = () => {
 		<div>
 			{/* <button onClick={() => setCount(count + 1)}>Increment</button> */}
 			{/* <h2>Count: {count}</h2> */}
-			<h1>All Products Page</h1>
+			<Banner/>
 			<ProductList products={products} />
 		</div>
 	)
