@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -8,10 +8,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 import { Box } from '@mui/material';
+import CartContext from '../store/cart-context';
 
 const ShowProduct = () => {
 	const { productId } = useParams();
 	const [product, setProduct] = useState(null);
+	const cartContext = useContext(CartContext);
 
 	useEffect(() => {
 		axios.get(`https://fakestoreapi.com/products/${productId}`)
@@ -23,6 +25,13 @@ const ShowProduct = () => {
 	if (!product) {
 		return <p>Loading .........</p>
 	}
+
+	const addToCartHandler = () => {
+        if (!product) {
+            return;
+        }
+        cartContext.addToCart({...product, qty: 1});
+    }
 
 	return (
 		<Box>
@@ -45,6 +54,9 @@ const ShowProduct = () => {
 					<Typography variant="body2" sx={{ color: 'text.secondary' }}>
 						<Rating readOnly name="size-small" defaultValue={product.rating.rate} size="small" /> ({product.rating.count})
 					</Typography>
+					<Box>
+                         <Button variant="outlined" size="small" onClick={addToCartHandler}>Add to Cart</Button>
+                    </Box>
 				</CardContent>
 			</Card>
 		</Box>

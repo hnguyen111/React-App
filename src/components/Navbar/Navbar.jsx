@@ -6,8 +6,13 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from 'react-router';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
+import Badge from '@mui/material/Badge';
+import { useContext } from 'react';
+import CartContext from '../../store/cart-context';
 
 const Navbar = () => {
+	const { cartLength } = useContext(CartContext);
 	return (
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar position="static">
@@ -27,7 +32,11 @@ const Navbar = () => {
 					<Button component={NavLink} to="/login" color="inherit">Login</Button>
 					<Button component={NavLink} to="/register" color="inherit">Register</Button>
 					<Button component={NavLink} to="/products" color="inherit">All Products</Button>
-					<Button component={NavLink} to="/cart" color="inherit">Cart</Button>
+					<Button component={NavLink} to="/cart" color="inherit">
+						<Badge badgeContent={cartLength} color="secondary">
+							<LocalMallIcon />
+						</Badge>
+					</Button>
 				</Toolbar>
 			</AppBar>
 		</Box>
