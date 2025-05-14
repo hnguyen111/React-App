@@ -29,14 +29,13 @@ const Navbar = () => {
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 						Shopping Cart
 					</Typography>
-					<Button component={NavLink} to="/login" color="inherit">Login</Button>
-					<Button component={NavLink} to="/register" color="inherit">Register</Button>
-					<Button component={NavLink} to="/products" color="inherit">All Products</Button>
+					<Button component={NavLink} to="/" color="inherit">All Products</Button>
 					<Button component={NavLink} to="/cart" color="inherit">
 						<Badge badgeContent={cartLength} color="secondary">
 							<LocalMallIcon />
 						</Badge>
 					</Button>
+					<Button component={NavLink} to="/login" color="inherit">Login</Button>
 				</Toolbar>
 			</AppBar>
 		</Box>
